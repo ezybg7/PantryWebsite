@@ -1,11 +1,15 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './styles/home.module.css'
+import Navbar from '../components/navbar'
 
 export default function Home() {
   return (
-    <main>
-      <title>Pantry | Home</title>
-      <h1>Home Page</h1>
-    </main>
+    <div>
+      <Navbar/>
+      <div className = {styles.home}>
+        <div className = {styles.bg}>
+      </div>
+    </div>
+    </div>
   )
 }

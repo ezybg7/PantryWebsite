@@ -1,0 +1,37 @@
+.food-list-display {
+  align-items: left;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.288);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.food-list-display:hover {
+  box-shadow: 1px 3px 5px rgba(0,  0, 0,  0.3);
+  background-color: rgba(255, 68, 68, 0.507);
+}
+
+.input-field{
+  margin: 10px;
+}
+
+.warning{
+ width: 100%;
+ color:white;
+ height: 100vh;
+ font-size: 40px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.warning a{
+  color:white;
+}
+
+.warning a:hover{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(160, 159, 159, 0.486);
+}

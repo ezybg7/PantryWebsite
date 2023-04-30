@@ -1,0 +1,65 @@
+.bgcolor{
+  overflow-y: hidden;
+}
+  
+.title {
+display: flex;
+justify-content: center;
+align-items: center;
+text-decoration: underline 3px;
+margin-top: 30px;
+color: #008f45;
+}
+
+.text {
+font-size: 21px;
+color: rgb(48, 48, 48);
+}
+/* unvisited link */
+.link:link {
+color: #2e915f;
+}
+
+/* visited link */
+.link:visited {
+color: #085c32;
+}
+
+/* mouse over link */
+.link:hover {
+color: #498d1c;
+}
+
+/* selected link */
+.link:active {
+color: #498d1c;
+}  
+
+.marginStyle {
+margin: 225px;
+margin-top: 30px;
+}
+
+.paragraphStyle {
+text-indent: 50px;
+margin-top: 20px;
+}
+
+.picl {
+display: flex;
+width: 200px;
+height: 200px;
+float: left;
+margin: 15px;
+margin-left: 0px;
+}
+
+.picr {
+display: flex;
+width: 225px;
+height: 225px;
+float: right;
+margin: 15px;
+margin-right: 0px;
+
+}

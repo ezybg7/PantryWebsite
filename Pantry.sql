@@ -1,8 +1,8 @@
 CREATE TABLE USER (
 	U_ID INT,
-	Email VARCHAR(30) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
 	Username VARCHAR(15) NOT NULL,
-	Password VARCHAR(20) NOT NULL,
+	Password VARCHAR(30) NOT NULL,
 	Phone_number CHAR(13),
 	PRIMARY KEY (U_ID)
 	);
@@ -30,7 +30,7 @@ CREATE TABLE NUTRITION (
 	F_ID INT,
 	Calories INT,
 	Servings INT,
-	Ingredients VARCHAR(30),
+	Ingredients VARCHAR(80),
 	Allergens VARCHAR(30),
 	FOREIGN KEY (F_ID) REFERENCES FOOD(F_ID)
 	);
@@ -40,7 +40,7 @@ CREATE TABLE RECIPE (
 	Ingredients INT NOT NULL,
 	Name VARCHAR(30) NOT NULL,
 	Prep_time INT,
-	Instructions VARCHAR(200) NOT NULL,
+	Instructions VARCHAR(400) NOT NULL,
 	PRIMARY KEY (R_ID),
 	FOREIGN KEY (U_ID) REFERENCES USER(U_ID)
 );
