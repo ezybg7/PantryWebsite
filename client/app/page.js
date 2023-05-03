@@ -4,11 +4,11 @@ import Navbar from '../components/navbar'
 
 export default function Home() {
   return (
-    <div>
+    <div className = {styles.disableScroll}>
       <Navbar/>
       <div className = {styles.home}>
         <div className = {styles.bg}>
-      </div>
+        </div>
     </div>
     </div>
   )
