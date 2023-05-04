@@ -29,11 +29,11 @@ const Foods = () => {
         });
     };
 
-    const getNutrition = () => {
-        axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {
-            console.log(res.data);
-        });
-    };
+    // const getNutrition = () => {
+    //     axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {
+    //         console.log(res.data);
+    //     });
+    // };
 
     return (
         <div className={styles.body}>
