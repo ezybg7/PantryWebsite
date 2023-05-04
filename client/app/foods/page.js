@@ -13,7 +13,7 @@ const Foods = () => {
 
     useEffect(() => {
         getFoods();
-    }), [];
+    }, []);
 
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
@@ -71,8 +71,7 @@ const Foods = () => {
                 <div>
                     {foods.map((food, i) => (
                         <div className="food-list-display">
-                            <p>Food: {food.Name}</p>
-                            <p>Expiration date: {food.Exp_date.toString()}</p>
+                            <p>Food: {food.Name} | Expiration date: {food.Exp_date.toString()}</p>
                         </div>
                     ))}
                 </div>
