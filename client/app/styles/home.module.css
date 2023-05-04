@@ -2,11 +2,13 @@
   background-image:
   url("https://cdn.discordapp.com/attachments/1030912487274598491/1096992261910310952/storage.png");
   background-size: "cover";
+  background-color: rgb(187, 236, 191);
   align-items: center;
-  height: 100vh;
+  height: 98vh;
   width: 100%;
   margin-top: -5;
   font-size: 50px;
   background-repeat: no-repeat;
   background-position: center;
+  overflow-y: hidden;
   }

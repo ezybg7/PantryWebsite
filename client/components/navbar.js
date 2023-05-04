@@ -9,7 +9,6 @@ const Navbar = () => {
           <Link href = "/" className = {styles.navbarButtons}> Home </Link>
           <Link href = "/about" className = {styles.navbarButtons}> About </Link>
           <Link href = "/foods" className = {styles.navbarButtons}> Foods </Link>
-          <Link href = "/login" className = {styles.navbarButtons}> Login </Link>
       </div>
     </nav>
    );
