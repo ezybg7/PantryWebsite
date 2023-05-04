@@ -13,7 +13,7 @@ const Foods = () => {
 
     useEffect(() => {
         getFoods();
-    });
+    }), [];
 
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
@@ -29,11 +29,11 @@ const Foods = () => {
         });
     };
 
-    // const getNutrition = () => {
-    //     axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {
-    //         console.log(res.data);
-    //     });
-    // };
+    const getNutrition = () => {
+        axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {
+            console.log(res.data);
+        });
+    };
 
     return (
         <div className={styles.body}>
@@ -71,8 +71,8 @@ const Foods = () => {
                 <div>
                     {foods.map((food, i) => (
                         <div className="food-list-display">
-                            <p>Food: {food.food}</p>
-                            <p>Expiration date: {food.date.toString()}</p>
+                            <p>Food: {food.Name}</p>
+                            <p>Expiration date: {food.Exp_date.toString()}</p>
                         </div>
                     ))}
                 </div>

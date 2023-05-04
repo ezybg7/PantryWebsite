@@ -31,36 +31,31 @@ app.post("/addFood", (req, res) => {
     });
 });
 
-// app.get("/foodnutrition", (req, res) => {
-//     const options = {
-//         method: "GET",
-//         url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
-//         headers: {
-//             "X-RapidAPI-Key": "8f883f02b5msh7293a7fb3c71a5bp18dc90jsn04765091ee8c",
-//             "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
-//         },
-//         params: req.body.food ,
-//     };
+app.get("/foodnutrition", (req, res) => {
+    const options = {
+        method: "GET",
+        url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
+        headers: {
+            "X-RapidAPI-Key": "8f883f02b5msh7293a7fb3c71a5bp18dc90jsn04765091ee8c",
+            "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
+        },
+        params: req.body.food,
+    };
 
-//     const fetchData = async () => {
-//         try {
-//             const response = await axios.request(options);
-//             return response.data;
-//         } catch (error) {
-//             setError(error);
-//             alert("There is an error");
-//         }
-//     };
+    const fetchData = async () => {
+        const response = await axios.request(options);
+        return response.data;
+    };
 
-//     console.log(fetchData());
-// });
+    console.log(fetchData());
+});
 
 app.get("/getFoods", (req, res) => {
     db.query("SELECT * FROM food", function (err, result) {
         if (err) throw err;
+        res.json(result);
         console.log(result);
     });
-    console.log();
 });
 
 app.listen(5000, () => {
