@@ -14,7 +14,7 @@ const Foods = () => {
 
     useEffect(() => {
         getFoods();
-    });
+    },[]);
 
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
@@ -22,10 +22,11 @@ const Foods = () => {
         });
     };
 
-    const sortFood = () => {
-        axios.get(`http://localhost:5000/sortFood?sort=${dropdown}`).then((res) => { 
-            console.log(res.data);
-        });
+    const sortFood = (e) => {
+        axios.get(`http://localhost:5000/sortFood?sort=${e.target.value}`).then((res) => { 
+        setFoods([...res.data]);
+        console.log(res.data);
+    });
     };
 
     const unSortFood = () => {
@@ -81,7 +82,7 @@ const Foods = () => {
                     <button onClick={sendFood}>
                         Add food
                     </button>
-                    <select value = {dropdown} onChange={(e) => {setDropDown(e.target.value); sortFood()}}>
+                    <select value = {dropdown} onChange={(e) => {setDropDown(e.target.value); sortFood(e)}}>
                         <option value = 'date'>Date</option>
                         <option value = 'name'>Name</option>
                         <option value = 'amount'>Amount</option>

@@ -77,7 +77,15 @@ app.post("/removeFood", (req, res) => {
 });
 
 app.get("/sortFood", (req, res) => {
-    db.query("SELECT * FROM food ORDER BY Exp_date ASC", function (err, result) {
+    let query = '';
+    if (req.query.sort == 'date'){
+        query ="SELECT * FROM food ORDER BY Exp_date ASC"
+    } else if (req.query.sort == 'name'){
+        query ="SELECT * FROM food ORDER BY Name"
+    } else if (req.query.sort == 'amount'){
+        query ="SELECT * FROM food ORDER BY Quantity"
+    }
+        db.query(query, function (err, result) {
         if (err) throw err;
         res.json(result);
     });
