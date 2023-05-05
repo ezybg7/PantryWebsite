@@ -56,7 +56,7 @@ app.get("/getFoods", (req, res) => {
     db.query("SELECT * FROM food", function (err, result) {
         if (err) throw err;
         res.json(result);
-        console.log(result);
+        //console.log(result);
     });
 });
 
