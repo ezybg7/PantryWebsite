@@ -10,19 +10,18 @@ const Foods = () => {
     const [date, setDate] = useState();
     const [food, setFood] = useState();
     const [foods, setFoods] = useState([]);
+    const [F_ID, setF_ID] = useState();
 
     useEffect(() => {
         getFoods();
     }, []);
 
     const sendFood = () => {
-        axios
-            .post("http://localhost:5000/addFood", { food, date, amount })
-            .then((res) => {
-                console.log(res.data);
-                setFoods([...foods, { food, date, amount }]);
-            })
-            .then(getFoods());
+        axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
+            console.log(res.data);
+            setFoods([...foods, { food, date, amount }]);
+
+        });
     };
 
     const getFoods = () => {
@@ -30,6 +29,13 @@ const Foods = () => {
             console.log(res.data);
             setFoods(res.data);
         });
+    };
+
+    const removeFood = () => {
+        axios.post("http://localhost:5000/removeFood", { F_ID }).then((res) => {
+            console.log('removed food');
+            getFoods();
+        })
     };
 
     const getNutrition = () => {

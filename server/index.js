@@ -23,12 +23,14 @@ db.connect((err) => {
 
 app.post("/addFood", (req, res) => {
     console.log(req.body);
-    var sql = "INSERT INTO food (Name, Exp_date, Quantity) VALUES (?)";
-    var values = [req.body.food, req.body.date, req.body.amount];
-    db.query(sql, [values], function (err, result) {
-        if (err) throw err;
-        console.log("1 record inserted");
-    });
+    if (req.body.food && req.body.date && req.body.amount) {
+        var sql = "INSERT INTO food (Name, Exp_date, Quantity) VALUES (?)";
+        var values = [req.body.food, req.body.date, req.body.amount];
+        db.query(sql, [values], function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    }
 });
 
 app.get("/foodnutrition", (req, res) => {
@@ -55,6 +57,17 @@ app.get("/getFoods", (req, res) => {
         if (err) throw err;
         res.json(result);
         console.log(result);
+    });
+});
+
+app.post("/removeFood", (req, res) => {
+    console.log(req.body);
+
+    var sql = "INSERT INTO food (Name, Exp_date, Quantity) VALUES (?)";
+    var values = [req.body.food, req.body.date, req.body.amount];
+    db.query(sql, [values], function (err, result) {
+        if (err) throw err;
+        console.log("1 record deleted");
     });
 });
 
