@@ -16,10 +16,13 @@ const Foods = () => {
     }, []);
 
     const sendFood = () => {
-        axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
-            console.log(res.data);
-            setFoods([...foods, { food, date, amount }]);
-        });
+        axios
+            .post("http://localhost:5000/addFood", { food, date, amount })
+            .then((res) => {
+                console.log(res.data);
+                setFoods([...foods, { food, date, amount }]);
+            })
+            .then(getFoods());
     };
 
     const getFoods = () => {
@@ -48,7 +51,7 @@ const Foods = () => {
                         <FoodInput value={food} onChange={setFood} />
                     </div>
                     <div>
-                        <label>Date</label>
+                        <label>Expiration Date</label>
                         <input
                             onChange={(e) => setDate(e.target.value)}
                             type="datetime-local"
