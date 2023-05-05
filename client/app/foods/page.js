@@ -71,7 +71,7 @@ const Foods = () => {
                 <div>
                     {foods.map((food, i) => (
                         <div className="food-list-display">
-                            <p>Food: {food.Name} | Expiration date: {food.Exp_date.toString()}</p>
+                            <p>Food: {food.Name} | Expiration date: {food.Exp_date.toString().substring(0, 10)}</p>
                         </div>
                     ))}
                 </div>
