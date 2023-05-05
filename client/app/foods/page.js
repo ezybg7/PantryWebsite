@@ -18,6 +18,7 @@ const Foods = () => {
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
             setFoods([...foods, { food, date, amount }]);
+            getFoods();
         });
     };
 
