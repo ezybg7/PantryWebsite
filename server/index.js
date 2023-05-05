@@ -24,8 +24,33 @@ db.connect((err) => {
 app.post("/addFood", (req, res) => {
     console.log(req.body);
     if (req.body.food && req.body.date && req.body.amount) {
-        var sql = "INSERT INTO food (Name, Exp_date, Quantity) VALUES (?)";
-        var values = [req.body.food, req.body.date, req.body.amount];
+        const options = {
+            method: "GET",
+            url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
+            headers: {
+                "X-RapidAPI-Key": "8f883f02b5msh7293a7fb3c71a5bp18dc90jsn04765091ee8c",
+                "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
+            },
+            params: {
+                query: req.body.food,
+            },
+        };
+
+        let nut;
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.request(options);
+                nut = response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+
+        var sql = "INSERT INTO food (Name, Exp_date, Quantity, Nutrition) VALUES (?)";
+        var values = [req.body.food, req.body.date, req.body.amount, nut];
         db.query(sql, [values], function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
@@ -33,31 +58,31 @@ app.post("/addFood", (req, res) => {
     }
 });
 
-app.post("/foodnutrition", (req, res) => {
-    console.log(req.body);
-    const options = {
-        method: "GET",
-        url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
-        headers: {
-            "X-RapidAPI-Key": "8f883f02b5msh7293a7fb3c71a5bp18dc90jsn04765091ee8c",
-            "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
-        },
-        params: {
-            query: req.body.fname,
-        },
-    };
+// app.post("/foodnutrition", (req, res) => {
+//     console.log(req.body);
+//     const options = {
+//         method: "GET",
+//         url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
+//         headers: {
+//             "X-RapidAPI-Key": "8f883f02b5msh7293a7fb3c71a5bp18dc90jsn04765091ee8c",
+//             "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
+//         },
+//         params: {
+//             query: req.body.fname,
+//         },
+//     };
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.request(options);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+//     const fetchData = async () => {
+//         try {
+//             const response = await axios.request(options);
+//             console.log(response.data);
+//         } catch (error) {
+//             console.error(error);
+//         }
+//     };
 
-    console.log(fetchData());
-});
+//     console.log(fetchData());
+// });
 
 app.get("/getFoods", (req, res) => {
     db.query("SELECT * FROM food", function (err, result) {
