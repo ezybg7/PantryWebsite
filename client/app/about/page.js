@@ -18,7 +18,7 @@ const About = () => {
               alleviate this crisis and lessen the impact of food shortages.</h3>
           </div>
           <div className = {styles.paragraphStyle}>
-          <img className = {styles.picl} src="https://cdn.discordapp.com/attachments/1030912487274598491/1096980408060608632/thumbnail_ZeroWaste.png" alt="React Image" />
+          <img className = {styles.picr} src="https://cdn.discordapp.com/attachments/1030912487274598491/1096980408060608632/thumbnail_ZeroWaste.png" alt="React Image" />
           <h3>{'\t'}Around 60% of this waste comes from homes, often as a result of food expiration. This application, 'Pantry', allows users to minimize their food waste through expiration tracking and reminders. </h3>
 
 
