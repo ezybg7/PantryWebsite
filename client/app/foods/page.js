@@ -86,7 +86,6 @@ const Foods = () => {
                         <option value = 'name'>Name</option>
                         <option value = 'amount'>Amount</option>
                     </select>
-                    <button onClick={sendFood}>Add food</button>
                 </form>
                 <div className={styles.food_list}>
                     {foods.map((food, i) => (
