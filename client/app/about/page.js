@@ -25,9 +25,7 @@ const About = () => {
           </div>
 
           <div className = {styles.paragraphStyle}>
-          <h3 className = {styles.text}>{'\t'}Use Pantry to track both perishable and nonperishable food, and keep track of what is available at any time from the 'Food' tab. After adding items through an easy-to-use input interface, each one will appear in your personal Pantry. These items will be displayed below the food input field on the same page. Your food will be auto-sorted in order of when they were added, but can be sorted to search for other characteristics as well. </h3>          </div>
-          <div className = {styles.paragraphStyle}>
-
+          <h3 className = {styles.text}>{'\t'}Use Pantry to track both perishable and nonperishable food, and keep track of what is available at any time from the 'Food' tab. After adding items through an easy-to-use input interface, each one will appear in your personal Pantry. These items will be displayed below the food input field on the same page. Your food will be auto-sorted in order of when they were added, but can be sorted to search for other characteristics as well. To remove a food once it has been used, simply click on it in the list!</h3>
           <h3 className = {styles.text}>{'\t'}The food expiration display system, Pantry's most important feature, will show any foods set to expire within 2 days or less on the 'Home' page. This prominent reminder will make sure that all food can be used with minimal waste. Pantry will help you to make better use of food within a timely manner, and reduce the amount of waste due to food expiring unexpectedly.</h3>          </div>
         </div>
       </div>
