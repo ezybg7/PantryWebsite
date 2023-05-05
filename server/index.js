@@ -2,6 +2,7 @@ const cors = require("cors");
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
+const axios = require("axios");
 
 app.use(cors());
 app.use(express.json());
@@ -33,7 +34,8 @@ app.post("/addFood", (req, res) => {
     }
 });
 
-app.get("/foodnutrition", (req, res) => {
+app.post("/foodnutrition", (req, res) => {
+    console.log(req.body);
     const options = {
         method: "GET",
         url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
@@ -41,12 +43,18 @@ app.get("/foodnutrition", (req, res) => {
             "X-RapidAPI-Key": "8f883f02b5msh7293a7fb3c71a5bp18dc90jsn04765091ee8c",
             "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
         },
-        params: req.body.food,
+        params: {
+            query: req.body.fname,
+        },
     };
 
     const fetchData = async () => {
-        const response = await axios.request(options);
-        return response.data;
+        try {
+            const response = await axios.request(options);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     console.log(fetchData());

@@ -46,8 +46,8 @@ const Foods = () => {
         });
     };
 
-    const getNutrition = () => {
-        axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {});
+    const getNutrition = (fname) => {
+        axios.post("http://localhost:5000/foodnutrition", { fname }).then((res) => {});
     };
 
     return (
@@ -86,6 +86,7 @@ const Foods = () => {
                         <option value = 'name'>Name</option>
                         <option value = 'amount'>Amount</option>
                     </select>
+                    <button onClick={sendFood}>Add food</button>
                 </form>
                 <div className={styles.food_list}>
                     {foods.map((food, i) => (
@@ -96,6 +97,7 @@ const Foods = () => {
                             <p>Food: {food.Name}</p>
                             <p>Quantity: {food.Quantity}</p>
                             <p>Expiration date: {food.Exp_date.toString().substring(0, 10)}</p>
+                            
                         </div>
                     ))}
                 </div>
