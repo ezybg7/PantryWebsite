@@ -2,7 +2,6 @@ const cors = require("cors");
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
-const axios = require("axios");
 
 app.use(cors());
 app.use(express.json());
