@@ -56,7 +56,7 @@ app.post("/foodnutrition", (req, res) => {
             console.error(error);
         }
     };
-    
+
     console.log(fetchData());
 });
 
