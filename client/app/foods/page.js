@@ -66,9 +66,7 @@ const Foods = () => {
                             value={amount}
                         ></input>
                     </div>
-                    <button type="submit" onClick={sendFood}>
-                        Add food
-                    </button>
+                    <button onClick={sendFood}>Add food</button>
                 </form>
                 <div className={styles.food_list}>
                     {foods.map((food, i) => (
