@@ -2,14 +2,15 @@
   align-items: left;
   padding: 10px;
   margin: 10px;
-  background-color: rgba(255, 255, 255, 0.288);
+  background-color: rgba(179, 255, 204, 0.288);
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  box-shadow: 1px 3px 5px rgba(0,  0, 0,  0.3);
+  max-width: 100vh;
 }
 
 .food_item:hover {
-  box-shadow: 1px 3px 5px rgba(0,  0, 0,  0.3);
   background-color: rgba(255, 68, 68, 0.507);
 }
 

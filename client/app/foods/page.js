@@ -13,31 +13,32 @@ const Foods = () => {
 
     useEffect(() => {
         getFoods();
-    }, []);
+    });
 
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
-            console.log(res.data);
+            //console.log(res.data);
             setFoods([...foods, { food, date, amount }]);
         });
     };
 
     const getFoods = () => {
         axios.get("http://localhost:5000/getFoods").then((res) => {
-            console.log(res.data);
+            //console.log(res.data);
             setFoods(res.data);
         });
     };
 
     const removeFood = (F_ID) => {
         axios.post("http://localhost:5000/removeFood", { F_ID }).then((res) => {
+            console.log('removed food');
             getFoods();
         });
     };
 
     const getNutrition = () => {
         axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {
-            console.log(res.data);
+            //console.log(res.data);
         });
     };
 
