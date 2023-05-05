@@ -17,29 +17,24 @@ const Foods = () => {
 
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
-            //console.log(res.data);
             setFoods([...foods, { food, date, amount }]);
         });
     };
 
     const getFoods = () => {
         axios.get("http://localhost:5000/getFoods").then((res) => {
-            //console.log(res.data);
             setFoods(res.data);
         });
     };
 
     const removeFood = (F_ID) => {
         axios.post("http://localhost:5000/removeFood", { F_ID }).then((res) => {
-            console.log('removed food');
             getFoods();
         });
     };
 
     const getNutrition = () => {
-        axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {
-            //console.log(res.data);
-        });
+        axios.get("http://localhost:5000/foodnutrition", { food }).then((res) => {});
     };
 
     return (
@@ -77,7 +72,10 @@ const Foods = () => {
                 </form>
                 <div className={styles.food_list}>
                     {foods.map((food, i) => (
-                        <div className={styles.food_item} onClick={()=>removeFood(food.F_ID)}>
+                        <div
+                            className={styles.food_item}
+                            onClick={() => removeFood(food.F_ID)}
+                        >
                             <p>Food: {food.Name}</p>
                             <p>Quantity: {food.Quantity}</p>
                             <p>Expiration date: {food.Exp_date.toString().substring(0, 10)}</p>
