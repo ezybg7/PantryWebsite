@@ -77,7 +77,7 @@ const Foods = () => {
                             <p>Food: {food.Name}</p>
                             <p>Quantity: {food.Quantity}</p>
                             <p>Expiration date: {food.Exp_date.toString().substring(0, 10)}</p>
-                            <p>Nutrition: {getNutrition(food.Name)}</p>
+                            
                         </div>
                     ))}
                 </div>
