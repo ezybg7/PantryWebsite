@@ -61,11 +61,10 @@ app.get("/getFoods", (req, res) => {
 });
 
 app.post("/removeFood", (req, res) => {
-    console.log(req.body);
+    console.log(req.body.F_ID);
 
-    var sql = "INSERT INTO food (Name, Exp_date, Quantity) VALUES (?)";
-    var values = [req.body.food, req.body.date, req.body.amount];
-    db.query(sql, [values], function (err, result) {
+    var sql = "DELETE FROM food WHERE F_ID = " + mysql.escape(req.body.F_ID);
+    db.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 record deleted");
     });
