@@ -33,9 +33,9 @@ const Foods = () => {
         });
     };
 
-    const getNutrition = (fname) => {
-        axios.post("http://localhost:5000/foodnutrition", { fname }).then((res) => {});
-    };
+    // const getNutrition = (fname) => {
+    //     axios.post("http://localhost:5000/foodnutrition", { fname }).then((res) => {});
+    // };
 
     return (
         <div className={styles.body}>
@@ -77,7 +77,6 @@ const Foods = () => {
                             <p>Food: {food.Name}</p>
                             <p>Quantity: {food.Quantity}</p>
                             <p>Expiration date: {food.Exp_date.toString().substring(0, 10)}</p>
-                            
                         </div>
                     ))}
                 </div>
