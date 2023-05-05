@@ -2,7 +2,6 @@ const cors = require("cors");
 const express = require("express");
 const mysql = require("mysql2");
 const app = express();
-const axios = require("axios");
 
 app.use(cors());
 app.use(express.json());
@@ -102,6 +101,15 @@ app.post("/removeFood", (req, res) => {
     });
 });
 
+app.get("/sortFood", (req, res) => {
+    db.query("SELECT * FROM food ORDER BY Exp_date ASC", function (err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+
 app.listen(5000, () => {
     console.log("Server started on port 5000");
 });
+

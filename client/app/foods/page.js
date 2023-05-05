@@ -10,6 +10,7 @@ const Foods = () => {
     const [date, setDate] = useState();
     const [food, setFood] = useState();
     const [foods, setFoods] = useState([]);
+    const [dropdown, setDropDown] = useState('date');
 
     useEffect(() => {
         getFoods();
@@ -18,6 +19,18 @@ const Foods = () => {
     const sendFood = () => {
         axios.post("http://localhost:5000/addFood", { food, date, amount }).then((res) => {
             setFoods([...foods, { food, date, amount }]);
+        });
+    };
+
+    const sortFood = () => {
+        axios.get(`http://localhost:5000/sortFood?sort=${dropdown}`).then((res) => { 
+            console.log(res.data);
+        });
+    };
+
+    const unSortFood = () => {
+        axios.get("http://localhost:5000/unSortFood").then((res) => { 
+            console.log(res.data);
         });
     };
 
@@ -55,7 +68,6 @@ const Foods = () => {
                             onChange={(e) => setDate(e.target.value)}
                             type="datetime-local"
                             value={date}
-                            min={Date(Date.now())}
                         ></input>
                     </div>
                     <div>
@@ -66,7 +78,14 @@ const Foods = () => {
                             value={amount}
                         ></input>
                     </div>
-                    <button onClick={sendFood}>Add food</button>
+                    <button onClick={sendFood}>
+                        Add food
+                    </button>
+                    <select value = {dropdown} onChange={(e) => {setDropDown(e.target.value); sortFood()}}>
+                        <option value = 'date'>Date</option>
+                        <option value = 'name'>Name</option>
+                        <option value = 'amount'>Amount</option>
+                    </select>
                 </form>
                 <div className={styles.food_list}>
                     {foods.map((food, i) => (
