@@ -68,10 +68,12 @@ const Foods = () => {
                         Add food
                     </button>
                 </form>
-                <div>
+                <div className={styles.food_list}>
                     {foods.map((food, i) => (
-                        <div className="food-list-display">
-                            <p>Food: {food.Name} | Expiration date: {food.Exp_date.toString()}</p>
+                        <div className={styles.food_item}>
+                            <p>Food: {food.Name}</p>
+                            <p>Quantity: {food.Quantity}</p>
+                            <p>Expiration date: {food.Exp_date.toString()}</p>
                         </div>
                     ))}
                 </div>
