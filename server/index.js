@@ -24,6 +24,7 @@ db.connect((err) => {
 app.post("/addFood", (req, res) => {
     console.log(req.body);
     if (req.body.food && req.body.date && req.body.amount) {
+      /*
         const options = {
             method: "GET",
             url: "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition",
@@ -35,8 +36,7 @@ app.post("/addFood", (req, res) => {
                 query: req.body.food,
             },
         };
-
-        let nut;
+        
 
         const fetchData = async () => {
             try {
@@ -48,9 +48,9 @@ app.post("/addFood", (req, res) => {
         };
 
         fetchData();
-
-        var sql = "INSERT INTO food (Name, Exp_date, Quantity, Nutrition) VALUES (?)";
-        var values = [req.body.food, req.body.date, req.body.amount, nut];
+        */
+        var sql = "INSERT INTO food (Name, Exp_date, Quantity) VALUES (?)";
+        var values = [req.body.food, req.body.date, req.body.amount];
         db.query(sql, [values], function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
